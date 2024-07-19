@@ -29,3 +29,13 @@ def square(num):
 my_nums = [1,2,3,4,5]
 
 print(map(square,my_nums))
+
+# map in multiple line
+d = {
+    'k1':123,
+    'k2':[0,1,2],
+    'k3':{
+        'insideKey':100
+        }
+    }
+print(f"d - {d}")
