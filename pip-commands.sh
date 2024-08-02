@@ -24,3 +24,10 @@ pip install -U requests
 
 # show info and dependencies for python module "requests"
 pip show requests
+
+# library to test python code style
+pip install pylint
+
+# run pylint to get code quality report and score
+# -r y for report yes
+pylint myexample.py -r y
