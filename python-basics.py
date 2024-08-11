@@ -43,3 +43,6 @@ d = {
         }
     }
 print(f"d - {d}")
+
+import timeit
+help(timeit.timeit)
