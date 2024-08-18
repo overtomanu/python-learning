@@ -1,6 +1,10 @@
 import os
 import textwrap
 import shutil
+import requests
+import bs4
+import timeit
+import tempfile
 
 # strings, comma prints space
 print("Hello" , "world")
@@ -44,5 +48,44 @@ d = {
     }
 print(f"d - {d}")
 
-import timeit
 help(timeit.timeit)
+print(f"tempfile.gettempdir() = {tempfile.gettempdir()}")
+print(f"os.path.join('usr','bin','spam') = {os.path.join('usr','bin','spam')}")
+
+
+# scraping
+quotes_site_response = requests.request(url='http://quotes.toscrape.com/',method='GET')
+#print(f"quotes_site_text => {str(quotes_site_response.text)}")
+quotes_site_text = quotes_site_response.text
+soup = bs4.BeautifulSoup(quotes_site_text,features="lxml")
+authors_soup = soup.select(".author")
+#print(f"authors_soup = {authors_soup}")
+authors = {author.getText() for author in authors_soup}
+print("authors => ", authors)
+
+quotes_result_set = soup.select("div.quote > span.text")
+quotes = {quote.get_text() for quote in quotes_result_set}
+print("quotes => ", quotes)
+
+top_tags_result_set = soup.select("div.tags-box .tag")
+top_tags = {tag.get_text() for tag in top_tags_result_set}
+print("top_tags => ", top_tags)
+
+authors=set()
+page_number = 1
+while(True):
+    try:
+        print("getting authors from page ",page_number)
+        quotes_site_response = requests.request(url=f'http://quotes.toscrape.com/page/{page_number}/',method='GET')
+        quotes_site_text = quotes_site_response.text
+        soup = bs4.BeautifulSoup(quotes_site_text,features="lxml")
+        authors_result = soup.select(".author")
+        if not authors_result:
+            break
+        for author in authors_result:
+            authors.add(author.get_text())
+        page_number += 1
+    except Exception as e:
+        print("caught exception e => ", e)
+        break
+print("authors => ", authors)
