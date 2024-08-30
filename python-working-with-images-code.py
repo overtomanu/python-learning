@@ -1,5 +1,7 @@
 # Working with images using python library
 
+# execute inside directory => Complete-Python-3-Bootcamp-master/14-Working-with-Images/
+
 from PIL import Image
 mac = Image.open('example.jpg')
 # Note this is a specialized file type from PIL (pillow)
