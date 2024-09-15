@@ -1,3 +1,4 @@
+import csv
 import os
 import textwrap
 import shutil
@@ -5,6 +6,7 @@ import requests
 import bs4
 import timeit
 import tempfile
+import sys
 
 # strings, comma prints space
 print("Hello" , "world")
@@ -51,6 +53,19 @@ print(f"d - {d}")
 help(timeit.timeit)
 print(f"tempfile.gettempdir() = {tempfile.gettempdir()}")
 print(f"os.path.join('usr','bin','spam') = {os.path.join('usr','bin','spam')}")
+
+
+# paths
+current_directory = os.getcwd()
+print("os.getcwd() => ", os.getcwd())
+os.chdir("../")
+print('os.getcwd() after os.chdir("../")=> ', os.getcwd())
+os.chdir(current_directory)
+print("os.path.dirname(os.path.realpath(__file__)) => ", os.path.dirname(os.path.realpath(__file__)))
+print("sys.path[0] => ", sys.path[0])
+print("os.path.dirname(os.path.realpath(sys.argv[0])) => ", os.path.dirname(os.path.realpath(sys.argv[0])))
+print("os.path.abspath('') => ", os.path.abspath(''))
+print("os.environ['HOME'] => ", os.environ['HOME'])
 
 
 # scraping

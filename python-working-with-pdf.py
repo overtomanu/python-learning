@@ -26,7 +26,7 @@ pdf_reader = PyPDF2.PdfReader(f)
 page_number = 0
 page_one = pdf_reader.pages[0]
 pdf_writer = PyPDF2.PdfWriter()
-pdf_writer.add_page(page_one);
+pdf_writer.add_page(page_one)
 pdf_output = open("Some_New_Doc.pdf","wb")
 pdf_writer.write(pdf_output)
 f.close()
@@ -43,4 +43,3 @@ for p in range(len(pdf_reader.pages)):
     page = pdf_reader.pages[p]
     print(page.extract_text())
     print("\n\n============================================\n\n")
-
