@@ -31,3 +31,6 @@ pip install pylint
 # run pylint to get code quality report and score
 # -r y for report yes
 pylint myexample.py -r y
+
+# notedown dependencies in a text file
+pip freeze > requirements.txt

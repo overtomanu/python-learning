@@ -30,3 +30,9 @@ echo "API_KEY=PASTE_API_KEY_HERE_WITHOUT_ANY_QUOTES"
 # click on the python icon in the sidebar
 # Under GLOBAL ENVIRONMENTS accordion, expand Venv and click on star icon of the first entry
 # to activate the virtual environment
+
+# to pin specific python version to be used, using asdf version manager
+# asdf local python 3.11.9
+
+# to notedown dependencies
+pip freeze > requirements.txt
