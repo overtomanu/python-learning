@@ -7,6 +7,12 @@ sleep 60000
 # Python Virtual Environment and pip for Beginners - YouTube
 # https://www.youtube.com/watch?v=eDe-z2Qy9x4
 
+# NOTE: if you are getting pip command not found, then just use "python -m pip"
+# it is too much of trouble to setup pip for python installed by brew and get it shimmed by asdf version manager
+# but if pip command is anyways needed, execute below two commands
+python -m ensurepip --upgrade
+python -m pip install --upgrade pip
+
 # show available commands for pip
 pip --help
 
@@ -34,3 +40,30 @@ pylint myexample.py -r y
 
 # notedown dependencies in a text file
 pip freeze > requirements.txt
+
+# uninstalling a package, below command uninstalls pip itself
+python -m pip uninstall pip
+
+# packages installed at some point of time
+pip install pip3-autoremove
+pip install requests
+pip install python-dotenv
+pip install pylint
+pip install send2trash
+pip install lxml
+pip install bs4
+# pillow and tqdm only installed in asdf python v3.11.9
+pip install pillow
+pip install tqdm
+pip install PyPDF2
+pip install imap-tools
+pip install tabulate
+# only installed in system python
+pip install fire
+
+# last time I checked, playwright was not fully supported by microsoft on fedora
+pip install playwright
+
+# Jupyter notebook related
+pip install ipykernel -U --user
+pip install ipywidgets

@@ -8,6 +8,8 @@ import timeit
 import tempfile
 import sys
 
+# THIS FILE ONLY HAS SOME CONTENT TO EXECUTE IN COMMAND LINE, SEE PYTHON-BASICS.IPYNB JUPYTER NOTBOOK INSTEAD
+
 # strings, comma prints space
 print("Hello" , "world")
 
@@ -39,6 +41,8 @@ def square(num):
 my_nums = [1,2,3,4,5]
 
 print(map(square,my_nums))
+# with lambda functions
+print(map(lambda num: num**2, my_nums))
 
 # map in multiple line
 d = {
