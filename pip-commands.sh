@@ -10,6 +10,8 @@ sleep 60000
 # NOTE: if you are getting pip command not found, then just use "python -m pip"
 # it is too much of trouble to setup pip for python installed by brew and get it shimmed by asdf version manager
 # but if pip command is anyways needed, execute below two commands
+# python3 and python can point to different interpreters because of brew or asdf setting.
+# so always install module in correct python/pip
 python -m ensurepip --upgrade
 python -m pip install --upgrade pip
 
@@ -60,6 +62,7 @@ pip install imap-tools
 pip install tabulate
 # only installed in system python
 pip install fire
+pip install pexpect # requirement was already satisfied
 
 # last time I checked, playwright was not fully supported by microsoft on fedora
 pip install playwright
